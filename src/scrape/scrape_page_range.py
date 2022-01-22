@@ -21,7 +21,10 @@ def scrape_page_range(driver, year, page_start, page_end):
         if page_nr % 10 == 0:
             print(year + ", page: " + str(page_nr))
 
-        for i in range(3, 22, 2):
+        # last page has less elements
+        nr_rows = len(driver.find_elements_by_xpath("//*[@id='mainTable']/tbody/tr"))
+
+        for i in range(3, nr_rows, 2):
             student = []
 
             # student id

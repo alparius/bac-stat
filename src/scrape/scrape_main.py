@@ -54,7 +54,9 @@ for year in nr_pages.keys():
     for filename in year_files:
         batch = pd.read_csv(filename, index_col=None, header=0)
         buffer.append(batch)
+
     year_results = pd.concat(buffer, axis=0, ignore_index=True)
+    year_results.drop(year_results.columns[[0]], axis=1, inplace=True)
 
     filepath = folder + 'bac-results-' + year + '.csv'
     year_results.to_csv(filepath)

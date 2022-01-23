@@ -1,3 +1,7 @@
+# project fluff
 .idea/
 venv/
 __pycache__/
+
+# unzipped data
+*.csv

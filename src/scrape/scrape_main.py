@@ -52,11 +52,13 @@ for year in nr_pages.keys():
     year_files = glob.glob(folder + '/bac-results-' + year + '*.csv')
     buffer = []
     for filename in year_files:
-        batch = pd.read_csv(filename, index_col=None, header=0)
+        batch = pd.read_csv(filename, index_col=0, header=0, skipinitialspace=True)
         buffer.append(batch)
-
     year_results = pd.concat(buffer, axis=0, ignore_index=True)
-    year_results.drop(year_results.columns[[0]], axis=1, inplace=True)
+
+    # no more whitespace trimming is needed
+    #year_results2 = year_results.replace("^\s*$", "", regex=True)
+    #print(year_results.equals(year_results2))
 
     filepath = folder + 'bac-results-' + year + '.csv'
     year_results.to_csv(filepath)

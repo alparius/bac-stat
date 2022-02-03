@@ -4,7 +4,10 @@ Statistics from the *Romanian Baccalaureate* results for a *Data Literacy* cours
 
 
 ## Instructions
-In general, the first step of reproducing any part of the scripts assumes a recent version of Python being available. The used dependencies can then be installed with `pip install -r requirements.txt` after entering the `src` directory.
+In general, the first step of reproducing any part of the scripts assumes a recent version of Python being available.
+- For steps of executing the scraping script, read below.
+- For dependencies of the experiments, a default Jupyter environment is required, the rest of the unusual dependencies (`tueplots`, `geopandas`) are or can be handled within the notebooks.
+
 
 ## The data
 
@@ -13,5 +16,7 @@ The underlying dataset was acquired from the [official site of the examination](
 The data was scraped using Selenium, static scraping methods didn't prove to be successful due to the included JavaScript in several of the table's cells. The scraping itself turned out to be times of magnitudes slower than expected, so the script was extended to save data to file in smaller batches and to always check for already collected batches. Even though this way it was possible to run multiple instances of the script (around 5-10), all in all obtaining the full dataset still took two full days' time.
 
 The batches were combined into single `.csv` files for each year and they can be found in the `data` directory.
+
+ The used dependencies can then be installed with `pip install -r requirements.txt` after entering the `src/scrape` directory.
 
 Reproducing the scraping process requires one additional dependency: the Chrome browser and a matching version of the [Chrome WebDriver](https://chromedriver.chromium.org/downloads) downloaded to a location specified in the 19th line of the `src/scrape/scrape_main.py` file. Then the aforementioned file should be executable.

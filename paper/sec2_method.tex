@@ -1,0 +1,14 @@
+\section{Methodology}
+
+Our language of choice for manipulating the data was \emph{Python}, together with its staple data stack (i.e. \emph{pandas, numpy} and \emph{matplotlib}). The experiments themselves were carried out in \emph{Jupyter Notebook} to facilitate a step-by-step workflow and make results reproducible.
+
+
+\subsection{Data Acquisition}
+
+The underlying dataset was acquired from the official site of the examination \cite{bactable}. Only the last three years (2019, 2020, 2021) were available. Earlier results were removed from the site since those were not anonymised.
+
+The data was scraped with the \emph{Selenium} library \cite{selenium}, which utilises a headless browser to render the target webpages using a stripped-down version of the browser's engine. Static scraping methods did not prove to be successful due to the \emph{JavaScript} code present in several of the table's cells.
+
+The scraping itself turned out to be times of magnitudes slower than initially expected, therefore the script was extended for parallel execution: to save data to files in smaller batches and to always check for already collected chunks by other processes.
+
+Furthermore, it must be noted that the scraping process abode by the webpage's \emph{robots.txt} ruleset: the resource was not disallowed and we respected the 10 second request frequency (although the long running time was also a limitation of our code). The total process involved not more than 40 000 URL requests spread across multiple days.

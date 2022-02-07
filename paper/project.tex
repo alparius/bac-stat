@@ -5,7 +5,22 @@
 % before loading neurips_2021
 
 % ready for submission
-\usepackage[preprint]{neurips_2021}
+\usepackage[preprint, nonatbib]{neurips_2021}
+
+
+
+\RequirePackage[strict=false]{csquotes}
+\RequirePackage[abbreviate=false,backend=biber,language=english,sorting=none]{biblatex}
+\renewcommand*{\bibfont}{\small}
+\DeclareFieldFormat[misc]{title}{#1}
+
+% lastseen date
+\DeclareFieldFormat{urldate}{%
+  (\bibstring{urlseen}:\addspace\thefield{urlyear}\adddot\addspace
+  \mkbibmonth{\thefield{urlmonth}}\addspace\thefield{urlday}\adddot)}
+  
+\bibliography{bibliography}
+
 
 % to compile a preprint version, e.g., for submission to arXiv, add add the
 % [preprint] option:
@@ -26,6 +41,7 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{xcolor}         % colors
+\usepackage{graphicx}
 
 \title{Minorities' results on the Romanian Baccalaureate}
 
@@ -37,14 +53,18 @@
 % authors names on the first line, and the last on the second line, try using
 % \AND instead of \And before the third author name.
 
+
 \author{%
   Orsolya-Renáta Szőcs\\
-  Matrikelnummer 123456789\\
-  \texttt{orsolya.szocs@student.uni-tuebingen.de} \\
+  Matriculation nr. 6158974\\
+%   \texttt{orsolya.szocs@student.uni-tuebingen.de} \\
   \And
   Alpár Cseke\\
-  Matrikelnummer 6159070\\
-  \texttt{alpar.cseke@student.uni-tuebingen.de} \\
+  Matriculation nr. 6159070\\
+%   \texttt{alpar.cseke@student.uni-tuebingen.de} \\
+  \AND
+  \texttt{\{orsolya.szocs, alpar.cseke\}@student.uni-tuebingen.de}\\
+    \texttt{\href{https://github.com/alparius/bac-stat}{https://github.com/alparius/bac-stat}}\\
 }
 
 \begin{document}
@@ -52,8 +72,16 @@
 \maketitle
 
 \begin{abstract}
-  Our plan is to first scrape the results of last year's \emph{Romanian Baccalaureate} (secondary school graduation exam) from the \href{http://static.bacalaureat.edu.ro/2021/rapoarte/rezultate/index.html}{official site}. We would like to explore how one's selected subjects and final grades are impacted by different factors such as geographical situation or belonging to a minority group.
+    The topic of the Romanian Baccalaureate (secondary school graduation exam) instigates several assumptions regarding the difference between the results of the country's ethnolinguistic groups and that of the main population. After having scraped the last few years' results, our goal is to discuss and visualise different aspects of the gathered data to find out whether the common beliefs have a basis, and to get a better understanding of the potential underlying issues.
+
 \end{abstract}
 
+
+\input{sec1_intro}
+\input{sec2_method}
+\input{sec3_experiments}
+\input{sec4_conclusion}
+
+\printbibliography
 
 \end{document}

@@ -22,6 +22,6 @@ The underlying dataset was acquired from the [official site of the examination](
 
 The data was scraped using Selenium, which turned out to be times of magnitudes slower than expected, so the script was extended to save data to file in smaller batches and to always check for already collected batches. These batches were combined into single `.csv` files for each year and they can be found in the `data` directory.
 
-The used dependencies can then be installed with `pip install -r requirements.txt` after entering the `src/scrape` directory.
+The used dependencies can then be installed with `pip install -r requirements.txt` after entering the `scrape` directory.
 
-Reproducing the scraping process requires one additional dependency: the Chrome browser and a matching version of the [Chrome WebDriver](https://chromedriver.chromium.org/downloads) downloaded to a location specified in the 19th line of the `src/scrape/scrape_main.py` file. Then the aforementioned file should be executable.
+Reproducing the scraping process requires one additional dependency: the Chrome browser and a matching version of the [Chrome WebDriver](https://chromedriver.chromium.org/downloads) downloaded to a location specified in the 19th line of the `scrape/scrape_main.py` file. Then the aforementioned file should be executable.

@@ -5,15 +5,15 @@ Statistics from the *Romanian Baccalaureate* results for a *Data Literacy* cours
 
 Repository structure:
 - `data` contains zip archives of the scraped dataset
-- `doc` holds the plots and other related experiments
-- `paper` is for the LaTeX files
-- `src` contains the data scraping script and the experiments' Jupyter notebooks
+- `experiments` holds the experiments' Jupyter notebooks and the generated plots
+- `paper` is for the final PDF and for the LaTeX project
+- `scrape` contains the data scraping script
 
 ## Instructions
 
 In general, the first step of reproducing any part of the scripts assumes a recent version of Python being available.
 - For steps of executing the scraping script, read below.
-- For dependencies of the experiments, a default Jupyter environment is required, the rest of the unusual dependencies (`tueplots`, `geopandas`) are or can be handled within the notebooks.
+- For the dependencies of the experiments, a default Jupyter environment is required, the rest of the unusual dependencies (`tueplots`, `geopandas`) can be handled within the notebooks.
 
 
 ## The data

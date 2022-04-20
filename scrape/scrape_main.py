@@ -3,7 +3,7 @@ from selenium import webdriver
 import os.path
 import glob
 
-from src.scrape.scrape_page_range import scrape_page_range
+from scrape.scrape_page_range import scrape_page_range
 
 
 ###
